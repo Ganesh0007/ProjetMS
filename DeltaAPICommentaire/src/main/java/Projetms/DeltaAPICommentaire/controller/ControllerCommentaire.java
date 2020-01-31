@@ -31,7 +31,7 @@ public class ControllerCommentaire {
 	}
 	
 	@PostMapping(value="/add")
-	public void addUser(@RequestBody Commentaire c) {
+	public void addCommentaire(@RequestBody Commentaire c) {
 		commentaireRepository.save(c);
 	}
 
