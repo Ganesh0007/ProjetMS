@@ -8,3 +8,4 @@ Liste Port
   ms Article : 9040
   Gateway : 9200
   Client : 9100
+  ms Blog (principal API) : 9300
