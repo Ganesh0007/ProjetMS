@@ -19,7 +19,7 @@ public class CategorieController {
 	private CategorieRepository categorieRepository;
 	
 	@PostMapping(value="/add")
-	public void addAuteur(@RequestBody Categorie c) {
+	public void addCategorie(@RequestBody Categorie c) {
 		categorieRepository.save(c);
 	}
 	
