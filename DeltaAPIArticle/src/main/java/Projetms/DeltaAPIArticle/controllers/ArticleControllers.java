@@ -1,7 +1,12 @@
 package Projetms.DeltaAPIArticle.controllers;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,42 +20,22 @@ public class ArticleControllers {
 	private ArticleRepository articleRepository;
 	
 	@PostMapping(value="/add")
-	public void addAuteur(@RequestBody Article a) {
+	public void addArticle(@RequestBody Article a) {
 		articleRepository.save(a);
 	}
 	
-	@PostMapping(value="/login")
-	public boolean login(@RequestBody Article a) {
-		Article auteur = articleRepository.findByUsername(a.getUsername());
-		if(a.getPassword().equals(auteur.getPassword())) 
-			return true;
-		return false;
+	@GetMapping(value="/articles")
+	public List<Article> getArticles(){
+		List<Article> list =new ArrayList<Article>();
+		articleRepository.findAll().forEach(list::add);
+		return list;
 	}
-
+	
+	@GetMapping(value="/articles/{id}")
+	public Article getArticle(@PathVariable String id) {
+		return articleRepository.findById(id);
+	}
 }
 
 
 
-
-
-
-
-
-public class AuteurController {
-
-	@Autowired
-	private AuteurRepository auteurRepository;
-	
-	@PostMapping(value="/add")
-	public void addAuteur(@RequestBody Auteur a) {
-		auteurRepository.save(a);
-	}
-	
-	@PostMapping(value="/login")
-	public boolean login(@RequestBody Auteur a) {
-		Auteur auteur = auteurRepository.findByUsername(a.getUsername());
-		if(a.getPassword().equals(auteur.getPassword())) 
-			return true;
-		return false;
-	}
-}

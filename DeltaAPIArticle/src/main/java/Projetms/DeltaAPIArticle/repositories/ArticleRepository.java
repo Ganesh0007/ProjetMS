@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import Projetms.DeltaAPIArticle.models.Article;
 
 @Repository
-public interface ArticleRepository extends CrudRepository<Article>, Long>{
+public interface ArticleRepository extends CrudRepository<Article, Long>{
 	public Article findById(String Id);
 }
 
