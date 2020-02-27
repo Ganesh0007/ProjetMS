@@ -18,6 +18,9 @@ public class Commentaire {
 	@Column(name="texte")
 	private String texte;
 	
+	@Column(name="idArticle")
+	private Long idArticle; 
+	
 	public String getAuteur() {
 		return auteur;
 	}
@@ -40,6 +43,14 @@ public class Commentaire {
 
 	public void setTexte(String texte) {
 		this.texte = texte;
+	}
+
+	public Long getIdArticle() {
+		return idArticle;
+	}
+
+	public void setIdArticle(Long idArticle) {
+		this.idArticle = idArticle;
 	}
 	
 }

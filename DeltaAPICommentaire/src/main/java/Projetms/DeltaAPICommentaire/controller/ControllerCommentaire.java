@@ -18,9 +18,9 @@ public class ControllerCommentaire {
 	@Autowired
 	private CommentaireRepository commentaireRepository;
 	
-	@GetMapping(value="/comment/{auteur}")
-	public Commentaire getCommentaire(@PathVariable String auteur){
-		return commentaireRepository.findByAuteur(auteur);
+	@GetMapping(value="/comment/{idArticle}")
+	public Commentaire getCommentaire(@PathVariable Long idArticle){
+		return commentaireRepository.findByIdArticle(idArticle);
 	}
 	
 	@GetMapping(value="/comments")

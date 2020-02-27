@@ -25,62 +25,65 @@ import ProjetMS.Client.Proxies.CommentaireProxy;
 @Controller
 public class HomeController {
 	
-	 @Autowired
-	 private MSUsersProxy userProxy;
-
-	 @RequestMapping("/toto")
-	 public String home(Model model){
-
-		 List<User> users =  userProxy.getUsers();
-
-	     model.addAttribute("users", users);
-
-	     return "Home";
-	 }
+	@RequestMapping("/Home")
+	public String home(Model model){
+	    return "Home";
+	}
 	 
-	 @Autowired
-		private CategorieProxy CategorieProxy;
-		@Autowired
-		private AuteurProxy AuteurProxy;
-		@Autowired
-		private CommentaireProxy CommentaireProxy;
-		@Autowired
-		private ArticleProxy ArticleProxy;
+	
+	@Autowired
+	private CategorieProxy CategorieProxy;
+	
+	@Autowired
+	private AuteurProxy AuteurProxy;
+	
+	@Autowired
+	private CommentaireProxy CommentaireProxy;
 		
-		@PostMapping(value="/login")
-		public boolean login(@RequestBody Auteur a) {
-			return AuteurProxy.login(a);
-		}
+	@Autowired
+	private ArticleProxy ArticleProxy;
+	
+	
 		
-		@PostMapping(value="/add")
-		public void addAuteur(@RequestBody Auteur a) {
-			AuteurProxy.addAuteur(a);
-		}
+	@PostMapping(value="/auteur/login")
+	public boolean login(@RequestBody Auteur a) {
+		return AuteurProxy.login(a);
+	}
 		
-		@PostMapping(value="/add")
-		public void addCategorie(@RequestBody Categorie c) {
-			CategorieProxy.addCategorie(c);
-		}
+	@PostMapping(value="/auteur/add")
+	public void addAuteur(@RequestBody Auteur a) {
+		AuteurProxy.addAuteur(a);
+	}
 		
-		@GetMapping(value="/categorie")
-		public List<Categorie> getCategories(){
-			return CategorieProxy.getCategories();
-		}
+	@GetMapping(value="/categorie")
+	public List<Categorie> getCategories(){
+		return CategorieProxy.getCategories();
+	}
+	
+	@PostMapping(value="/categorie/add")
+	public void addCategorie(@RequestBody Categorie c) {
+		CategorieProxy.addCategorie(c);
+	}
 		
-		@GetMapping(value="/comment/{auteur}")
-		public Commentaire getCommentaire(@PathVariable String auteur) {
-			return CommentaireProxy.getCommentaire(auteur);
-		}
 		
-		@GetMapping(value="/comments")
-		public List<Commentaire> getCommentaires(){
-			return CommentaireProxy.getCommentaires();
-		}
+	/*@GetMapping(value="/comment/{auteur}")
+	public Commentaire getCommentaire(@PathVariable String auteur) {
+		return CommentaireProxy.getCommentaire(auteur);
+	}*/
 		
-		@PostMapping(value="/add")
-		public void addCommentaire(@RequestBody Commentaire c) {
-			CommentaireProxy.addCommentaire(c);
-		}
+	@GetMapping(value="/comments")
+	public List<Commentaire> getCommentaires(){
+		return CommentaireProxy.getCommentaires();
+	}
 		
+	@PostMapping(value="/comments/add")
+	public void addCommentaire(@RequestBody Commentaire c) {
+		CommentaireProxy.addCommentaire(c);
+	}
 
+	
+	@PostMapping(value="/articles/add")
+	public void addArticle(@RequestBody Article a) {
+		ArticleProxy.addArticle(a);
+	}
 }
