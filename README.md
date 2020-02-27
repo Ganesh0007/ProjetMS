@@ -12,8 +12,6 @@ Liste Port :
   Gateway : 9200
   
   Client : 9100
-  
-  ms Blog (principal API) : 9300
 
 
 Pierre VILLIERS / 
