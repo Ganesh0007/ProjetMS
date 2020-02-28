@@ -26,18 +26,6 @@ public class Article {
 	@Column(name="contenu")
 	private String contenu;
 	
-	@Column(name="commentaires")
-	private String commentaires;
-
-
-
-
-	public String getCommentaires() {
-		return commentaires;
-	}
-	public void setCommentaires(String commentaires) {
-		this.commentaires = commentaires;
-	}
 
 	public String getContenu() {
 		return contenu;
