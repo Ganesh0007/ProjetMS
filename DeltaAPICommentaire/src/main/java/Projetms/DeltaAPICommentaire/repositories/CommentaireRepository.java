@@ -8,5 +8,5 @@ import Projetms.DeltaAPICommentaire.models.Commentaire;
 @Repository
 public interface CommentaireRepository extends CrudRepository<Commentaire, Long>{
 	
-	public Commentaire findByIdArticle(Long idAuteur);
+	public Iterable<Commentaire> findByIdArticle(Long idAuteur);
 }

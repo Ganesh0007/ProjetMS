@@ -17,7 +17,7 @@ import ProjetMS.Client.Model.Commentaire;
 public interface CommentaireProxy {
 	
 	@GetMapping(value="/comment/{idArticle}")
-	public Commentaire getCommentaire(@PathVariable Long idArticle);
+	public List<Commentaire> getCommentaire(@PathVariable Long idArticle);
 	
 	@GetMapping(value="/comments")
 	public List<Commentaire> getCommentaires();

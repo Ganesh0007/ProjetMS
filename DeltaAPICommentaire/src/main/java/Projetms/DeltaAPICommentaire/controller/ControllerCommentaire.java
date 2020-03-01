@@ -19,8 +19,10 @@ public class ControllerCommentaire {
 	private CommentaireRepository commentaireRepository;
 	
 	@GetMapping(value="/comment/{idArticle}")
-	public Commentaire getCommentaire(@PathVariable Long idArticle){
-		return commentaireRepository.findByIdArticle(idArticle);
+	public List<Commentaire> getCommentaire(@PathVariable Long idArticle){
+		List<Commentaire> commentaires = new ArrayList<Commentaire>(); 
+		commentaireRepository.findByIdArticle(idArticle).forEach(commentaires::add);
+		return commentaires;
 	}
 	
 	@GetMapping(value="/comments")

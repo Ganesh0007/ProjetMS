@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import ProjetMS.Client.Model.Article;
-import ProjetMS.Client.Model.Auteur;
-import ProjetMS.Client.Model.Commentaire;
 
 @FeignClient(name="DeltaAPIArticle")
 @RibbonClient(name= "DeltaAPIArticle")
@@ -22,12 +20,12 @@ public interface ArticleProxy {
 	
 	
 	@GetMapping(value="/articles/{id}")
-	public Commentaire getArticle(@PathVariable Long id);
+	public Article getArticle(@PathVariable Long id);
 	
 	@GetMapping(value="/articles")
 	public List<Article> getArticles();
 	
-	@PostMapping(value="/add")
-	public void addArticle(@RequestBody Commentaire c);
+	@PostMapping(value="/articles")
+	public List<Article> getArticlesByCategorie(@RequestBody String categorie);
 	
 }

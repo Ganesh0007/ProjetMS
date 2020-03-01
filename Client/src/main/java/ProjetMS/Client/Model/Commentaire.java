@@ -8,6 +8,7 @@ public class Commentaire {
 	private String auteur;
 	private Date date;
 	private String texte;
+	private Long articleId;
 	
 	public String getAuteur() {
 		return auteur;
@@ -39,6 +40,14 @@ public class Commentaire {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Long getArticleId() {
+		return articleId;
+	}
+
+	public void setArticleId(Long articleId) {
+		this.articleId = articleId;
 	}
 
 	

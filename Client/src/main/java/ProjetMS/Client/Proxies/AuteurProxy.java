@@ -17,4 +17,5 @@ public interface AuteurProxy {
 	@PostMapping(value="/add")
 	public void addAuteur(@RequestBody Auteur a);
 
+	public boolean existUsername(String username);
 }

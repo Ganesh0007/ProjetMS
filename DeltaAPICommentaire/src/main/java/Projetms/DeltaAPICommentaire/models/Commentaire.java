@@ -52,5 +52,6 @@ public class Commentaire {
 	public void setIdArticle(Long idArticle) {
 		this.idArticle = idArticle;
 	}
+
 	
 }

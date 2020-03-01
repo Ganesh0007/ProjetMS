@@ -8,5 +8,6 @@ import Projetms.DeltaAPIArticle.models.Article;
 @Repository
 public interface ArticleRepository extends CrudRepository<Article, Long>{
 	public Article findById(String Id);
+	public Iterable<Article> findByCategorie(String categorie);
 }
 

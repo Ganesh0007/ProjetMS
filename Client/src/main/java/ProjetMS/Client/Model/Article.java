@@ -6,7 +6,6 @@ public class Article {
 	private String auteur;
 	private String date;
 	private String contenu;
-	private String commentaires;
 	
 	public Long getId() {
 		return id;
@@ -37,12 +36,6 @@ public class Article {
 	}
 	public void setContenu(String contenu) {
 		this.contenu = contenu;
-	}
-	public String getCommentaires() {
-		return commentaires;
-	}
-	public void setCommentaires(String commentaires) {
-		this.commentaires = commentaires;
 	}
 
 }

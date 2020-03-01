@@ -35,6 +35,14 @@ public class ArticleControllers {
 	public Article getArticle(@PathVariable String id) {
 		return articleRepository.findById(id);
 	}
+	
+	@PostMapping(value="/articles")
+	public List<Article> getArticlesByCategorie(@RequestBody String categorie){
+		List<Article> list =new ArrayList<Article>();
+		articleRepository.findByCategorie(categorie).forEach(list::add);
+		return list;
+	}
+	
 }
 
 

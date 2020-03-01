@@ -26,4 +26,12 @@ public class AuteurController {
 			return true;
 		return false;
 	}
+	
+	public boolean existUsername(String username) {
+		Auteur auteur =auteurRepository.findByUsername(username);
+		if(auteur==null || auteur.getUsername()!=username)
+			return false;
+		else
+			return true;
+	}
 }
