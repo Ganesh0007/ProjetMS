@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Form Add</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <li class="nav-item">
+        <a class="nav-link" href="../index.html">Home</a>
+    </li>
+</head>
+<body>
+    <h1>Formulaire Categorie</h1>
+   
+    <form action="#" th:action="@{/add}" th:object="${auteur}" method="post">
+       
+        <label for="name">Name</label>
+        <input type="text" th:field="*{name}" id="name" placeholder="Name">
+        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+        
+        <input type="submit" value="Add Categorie">   
+    </form>
+
+
+
+</body>
+</html>

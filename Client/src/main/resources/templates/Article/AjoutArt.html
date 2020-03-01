@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Form Add</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <li class="nav-item">
+        <a class="nav-link" href="../index.html">Home</a>
+    </li>
+</head>
+<body>
+    <h1>Formulaire Article</h1>
+   
+    <form action="#" th:action="@{/add}" th:object="${auteur}" method="post">
+        <label for="categorie">Catégorie</label>
+        <input type="text" th:field="*{categorie}" id="categorie" placeholder="Catégorie">
+        <span th:if="${#fields.hasErrors('categorie')}" th:errors="*{categorie}"></span>
+        
+        <label for="auteur">Auteur</label>
+        <input type="text" th:field="*{auteur}" id="auteur" placeholder="Auteur">
+        <span th:if="${#fields.hasErrors('auteur')}" th:errors="*{auteur}"></span>
+        
+        <label for="date">Date</label>
+        <input type="text" th:field="*{date}" id="date" placeholder="Date">
+        <span th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></span>
+        
+        <label for="contenu">Contenu</label>
+        <input type="text" th:field="*{contenu}" id="contenu" placeholder="Contenu">
+        <span th:if="${#fields.hasErrors('contenu')}" th:errors="*{contenu}"></span>
+        
+        <input type="submit" value="Add Article">   
+    </form>
+
+
+
+</body>
+</html>

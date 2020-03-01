@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Form Add</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <li class="nav-item">
+        <a class="nav-link" href="../index.html">Home</a>
+    </li>
+</head>
+<body>
+    <h1>Formulaire Commentaire</h1>
+   
+    <form action="#" th:action="@{/add}" th:object="${auteur}" method="post">
+        <label for="auteur">auteur</label>
+        <input type="text" th:field="*{auteur}" id="auteur" placeholder="Auteur">
+        <span th:if="${#fields.hasErrors('auteur')}" th:errors="*{auteur}"></span>
+        
+        <label for="date">Date</label>
+        <input type="text" th:field="*{date}" id="date" placeholder="Date">
+        <span th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></span>
+        
+        <label for="texte">texte</label>
+        <input type="text" th:field="*{texte}" id="texte" placeholder="texte">
+        <span th:if="${#fields.hasErrors('texte')}" th:errors="*{texte}"></span>
+
+        <input type="submit" value="Add Comment">   
+    </form>
+
+
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Form Add</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h1>Formulaire Auteur</h1>
+   
+    <form action="#" th:action="@{/add}" th:object="${auteur}" method="post">
+        <label for="username">Nom</label>
+        <input type="text" th:field="*{username}" id="username" placeholder="Nom">
+        <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+        
+        <label for="email">Email</label>
+        <input type="text" th:field="*{email}" id="email" placeholder="Email">
+        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+        
+        <label for="password">Mot de passe</label>
+        <input type="text" th:field="*{password}" id="password" placeholder="Mot de passe">
+        <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+        
+        <input type="submit" value="Add Auteur">   
+    </form>
+
+</body>
+</html>
